@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # 安装内核开发环境
-yum --enablerepo=elrepo-kernel install kernel-ml-devel -y
+yum --enablerepo=elrepo-kernel install -y kernel-ml-devel
 
 #先卸载原版内核 headers ，然后再安装最新版内核 headers
-yum remove kernel-headers
+yum remove -y kernel-headers
 
 #带有依赖关系的包也会被卸载，gcc，golang等都需要重新安装
 yum --enablerepo=elrepo-kernel -y install kernel-ml-headers
@@ -53,7 +53,6 @@ mkdir llvm-build
 cd llvm-build
 cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/home/clang -DLLVM_OPTIMIZED_TABLEGEN=1 ../llvm
 make
-
 make install
 
 #覆盖旧版本llvm
@@ -70,6 +69,7 @@ yum install -y bison flex
 yum update -y --enablerepo=elrepo-kernel iproute
 
 #安装bcc
+cd /home
 git clone https://github.com/iovisor/bcc.git
 mkdir bcc/build; cd bcc/build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr

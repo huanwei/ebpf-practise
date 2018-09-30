@@ -5,7 +5,7 @@
 #下载内核
 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
-yum --enablerepo=elrepo-kernel install kernel-ml -y
+yum --enablerepo=elrepo-kernel install -y kernel-ml
 
 #查看本机现有的内核
 sudo awk -F\' '$1=="menuentry " {print i++ " : " $2}' /etc/grub2.cfg
