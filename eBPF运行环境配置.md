@@ -33,7 +33,8 @@ yum remove kernel-headers
 带有依赖关系的包也会被卸载，gcc，golang等都需要重新安装
 ```
 yum --enablerepo=elrepo-kernel -y install kernel-ml-headers
-yum install -y gcc gcc-c++
+yum install -y gcc 
+yum install -y gcc-c++
 yum install -y golang
 ```
 #### 编译安装clang、llvm
@@ -42,7 +43,6 @@ yum install -y golang
 下载必要源码
 ```
 cd /home
-yum install -y wget
 wget http://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz
 wget http://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz
 wget http://releases.llvm.org/6.0.1/compiler-rt-6.0.1.src.tar.xz
@@ -86,21 +86,6 @@ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/hom
 make
 make install
 ```
-
-
-```
-wget http://www.cmake.org/files/v2.8/cmake-2.8.3.tar.gz
-tar zxvf cmake-2.8.3.tar.gz
-cd cmake-2.8.3
-./bootstrap
-gmake
-make install
-cd ..
-cd llvm-build
-
-
-```
-
 
 覆盖旧版本llvm
 ```
