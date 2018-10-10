@@ -20,6 +20,7 @@ yum install -y bison flex
 yum update -y --enablerepo=elrepo-kernel iproute
 
 #安装bcc
+yum install -y git
 cd /home
 git clone https://github.com/iovisor/bcc.git
 mkdir bcc/build; cd bcc/build

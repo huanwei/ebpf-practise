@@ -101,6 +101,7 @@ bison和flex可通过yum安装
 
 yum install -y bison flex
 
+yum install -y git
 git clone https://github.com/iovisor/bcc.git
 mkdir bcc/build; cd bcc/build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr
